@@ -5,8 +5,10 @@ Currently has an attempt at routing and endpoint body validation.
 Desired features includes:
 
 - Database setup including migrations, could be done using [sequelizejs](http://docs.sequelizejs.com/)
-- Endpoint documentation generation
-- Code documentation generation
+- Endpoint documentation generation, could be done using
+  [apidocjs](http://apidocjs.com/)
+- Code documentation generation, could be done using
+  [typedoc](http://typedoc.org/)
 
 ## Setup
 First install dependencies locally with:
