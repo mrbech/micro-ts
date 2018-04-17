@@ -1,0 +1,28 @@
+{
+  "name": "micro-ts",
+  "version": "1.0.0",
+  "description": "Backend in TypeScript and Micro",
+  "license" : "MIT",
+  "main": "./build/app",
+  "types": "./build/app",
+  "scripts": {
+    "start": "nodemon --exec ./node_modules/.bin/ts-node -- ./lib/app.ts",
+    "json-schema": "typescript-json-schema -o ./lib/models/schemas.json \"lib/models/*.ts\" \\*",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2",
+    "nodemon": "^1.14.7",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.8.1",
+    "typescript-json-schema": "^0.22.0"
+  },
+  "dependencies": {
+    "@types/ajv": "^1.0.0",
+    "@types/micro": "^7.3.1",
+    "@types/microrouter": "^2.2.2",
+    "ajv": "^6.4.0",
+    "micro": "^9.1.4",
+    "microrouter": "^3.1.1"
+  }
+}
