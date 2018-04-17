@@ -1,10 +1,10 @@
 # Micro Typescript
-An example REST API implemented in Typescript using `micro`
+An example REST API implemented in Typescript using [`micro`](https://github.com/zeit/micro)
 
 Currently has an attempt at routing and endpoint body validation.
 Desired features includes:
 
-- Database setup including migrations, could be done using [http://docs.sequelizejs.com/](sequelizejs)
+- Database setup including migrations, could be done using [sequelizejs](http://docs.sequelizejs.com/)
 - Endpoint documentation generation
 - Code documentation generation
 
