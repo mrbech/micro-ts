@@ -2,13 +2,15 @@
   "name": "micro-ts",
   "version": "1.0.0",
   "description": "Backend in TypeScript and Micro",
-  "license" : "MIT",
+  "license": "MIT",
   "main": "./build/app",
   "types": "./build/app",
   "scripts": {
     "start": "nodemon --exec ./node_modules/.bin/ts-node -- ./lib/app.ts",
-    "json-schema": "typescript-json-schema -o ./lib/models/schemas.json \"lib/models/*.ts\" \\*",
-    "build": "tsc"
+    "json-schema": "typescript-json-schema --ignoreErrors -o ./lib/models/schemas.json \"lib/models/*.ts\" \\*",
+    "build": "tsc",
+    "migrate": "knex migrate:latest",
+    "add-migration": "knex migrate:make -x ts"
   },
   "devDependencies": {
     "@types/node": "^8.5.2",
@@ -19,10 +21,14 @@
   },
   "dependencies": {
     "@types/ajv": "^1.0.0",
+    "@types/knex": "^0.14.12",
     "@types/micro": "^7.3.1",
     "@types/microrouter": "^2.2.2",
+    "@types/pg": "^7.4.8",
     "ajv": "^6.4.0",
+    "knex": "^0.14.6",
     "micro": "^9.1.4",
-    "microrouter": "^3.1.1"
+    "microrouter": "^3.1.1",
+    "pg": "^7.4.1"
   }
 }

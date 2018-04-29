@@ -8,6 +8,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
+                "id": {
+                    "type": "number"
+                },
                 "message": {
                     "type": "string"
                 }
