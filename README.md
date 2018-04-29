@@ -1,9 +1,12 @@
 # Micro Typescript
 An example REST API implemented in Typescript using [`micro`](https://github.com/zeit/micro)
 
-Currently has an attempt at routing and endpoint body validation.
+Currently has an attempt at routing, endpoint body validation and database
+access.
+
 Desired features includes:
 
+- Setup code formatting [prettier](https://prettier.io/)
 - Endpoint documentation generation, could be done using
   [apidocjs](http://apidocjs.com/)
 - Code documentation generation, could be done using
