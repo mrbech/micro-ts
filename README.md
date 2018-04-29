@@ -22,7 +22,7 @@ Then setup using
 The server will run on port `3000` and reload on code changes. New dependencies
 can be added by running:
 
-> docker-compose run backend yarn add <dependency>
+> docker-compose run backend yarn add \<dependency\>
 
 ## Database
 PostgresSQL using [knex](http://knexjs.org) as query builder. Knex allows us to
@@ -39,7 +39,7 @@ Migrations can be run using:
 
 Migration files can be created with:
 
-> docker-compose run backend yarn add-migration <name>
+> docker-compose run backend yarn add-migration \<name\>
 
 ## JSON Schema
 For endpoint validation we use JSON schemas generated from typescript
