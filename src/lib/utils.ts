@@ -1,31 +1,22 @@
-import * as Ajv from 'ajv'
+import { PathReporter } from 'io-ts/lib/PathReporter'
+import * as t from 'io-ts'
 import { IncomingMessage, ServerResponse } from 'http';
 import * as micro from 'micro'
 
-//Function that validates the format of the body based on the schemaType
-//provided.
-//A bit of a hack, schemaType is actually not of type T, but is a JSON schema.
-//This allows us to use a JSON Schema delacred as the type it represents to
-//provide type information, to the compiler. (See models/todo.js for schema declaration)
-export async function validate<T>(req: IncomingMessage, schemaType: T): Promise<T> {
+//Function that uses an io-ts interface definition to validate the requests JSON body
+export async function validate<P, A, O, I>(req: IncomingMessage, validator: t.InterfaceType<P, A, O, I>) {
     const body: any = await micro.json(req)
-    const ajv = new Ajv({ removeAdditional: true})
-
-    //Spread is currently not working with generics...
-    const schema = Object.assign({}, schemaType, { additionalProperties: false })
-    const validate = ajv.compile(schema)
-    const valid = validate(body)
-    if(!valid) {
+    const v = validator.decode(body)
+    if(v.isLeft()) {
         throw createError(400, { 
             error: "Invalid body", 
-            expectedSchema: schema,
-            validationErrors: validate.errors
+            validationErrors: PathReporter.report(v)
         })
     }
-
-    return body as T
+    return v.value as t.TypeOf<typeof validator>
 }
 
+//Function that throws a micro error with body as json
 export function createError(statusCode: number, obj: any) {
     return micro.createError(statusCode, JSON.stringify(obj))
 }
