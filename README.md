@@ -43,10 +43,3 @@ Migrations can be run using:
 Migration files can be created with:
 
 > docker-compose run backend yarn add-migration \<name\>
-
-## JSON Schema
-For endpoint validation we use JSON schemas generated from typescript
-interfaces. The generated schema can be found in `lib/models/schemas.json` and
-is generated from the typescript files found in lib/models using:
-
-> docker-compose run backend yarn json-schema 
