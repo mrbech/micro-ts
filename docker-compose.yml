@@ -1,11 +1,11 @@
 version: '3'
 services:
-    backend:
-        build: ./
+    service:
+        build: ./service
         ports:
             - "127.0.0.1:3000:3000"
         volumes:
-            - ./src:/src
+            - ./service:/src
     database:
         image: postgres
         environment:

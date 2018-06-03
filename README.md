@@ -15,17 +15,17 @@ Desired features includes:
 ## Setup
 First install dependencies locally with:
 
-> docker-compose run backend yarn install
+> docker-compose run service yarn install
 
 Then setup using
 
 > docker-compose up
-> docker-compose run backend yarn migrate
+> docker-compose run service yarn migrate
 
 The server will run on port `3000` and reload on code changes. New dependencies
 can be added by running:
 
-> docker-compose run backend yarn add \<dependency\>
+> docker-compose run service yarn add \<dependency\>
 
 ## Database
 PostgresSQL using [knex](http://knexjs.org) as query builder. Knex allows us to
@@ -38,8 +38,8 @@ folder and is defined in TypeScript.
 
 Migrations can be run using:
 
-> docker-compose run backend yarn migrate
+> docker-compose run service yarn migrate
 
 Migration files can be created with:
 
-> docker-compose run backend yarn add-migration \<name\>
+> docker-compose run service yarn add-migration \<name\>

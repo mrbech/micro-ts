@@ -1,6 +1,6 @@
 FROM node:latest
 
-ADD src /src
+ADD . /src
 WORKDIR /src
 RUN yarn install
 RUN yarn build
